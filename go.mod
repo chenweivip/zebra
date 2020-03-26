@@ -15,6 +15,9 @@ require (
 	github.com/go-ini/ini v1.55.0
 	github.com/go-sql-driver/mysql v1.5.0 // indirect
 	github.com/jinzhu/gorm v1.9.12
+	github.com/swaggo/gin-swagger v1.2.0
+	github.com/swaggo/swag v1.6.5 // indirect
 	github.com/unknwon/com v1.0.1
+	golang.org/x/net v0.0.0-20200324143707-d3edc9973b7e // indirect
 	gopkg.in/ini.v1 v1.55.0 // indirect
 )
