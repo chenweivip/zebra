@@ -1,11 +1,5 @@
 package models
 
-import (
-	"time"
-
-	"github.com/jinzhu/gorm"
-)
-
 type Article struct {
 	Model
 
@@ -75,12 +69,8 @@ func DeleteArticle(id int) bool {
 	return true
 }
 
-func (article *Article) BeforeCreate(scope *gorm.Scope) error {
-	_ = scope.SetColumn("CreatedOn", time.Now().Unix())
-	return nil
-}
-
-func (article *Article) BeforeUpdate(scope *gorm.Scope) error {
-	_ = scope.SetColumn("ModifiedOn", time.Now().Unix())
-	return nil
+func CleanAllArticle() bool {
+	// 硬删除要使用 Unscoped()
+	db.Unscoped().Where("deleted_on != ? ", 0).Delete(&Article{})
+	return true
 }
